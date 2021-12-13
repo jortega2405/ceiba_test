@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:test_ceiba_software/src/model/users_model.dart';
-import 'package:test_ceiba_software/src/pages/user_details.dart';
 import 'package:test_ceiba_software/src/utils/http_service.dart';
 
 import 'posts_page.dart';

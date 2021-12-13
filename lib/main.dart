@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_ceiba_software/src/pages/home_page.dart';
-import 'package:test_ceiba_software/src/pages/user_details.dart';
 
 void main() {
   runApp( MyApp());
