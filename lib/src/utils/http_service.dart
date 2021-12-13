@@ -48,7 +48,7 @@ class Services {
 
   static Future<List<Posts>> getPostsByUserId(int userId)async {
     try {
-      final response = await http.get(Glob().getHost() + '/post?userId=' + userId.toString());
+      final response = await http.get(Glob().getHost() + '/posts?userId=' + userId.toString());
       if (response.statusCode == 200) {
         List<Posts> list = parsePosts(response.body);
         return list;

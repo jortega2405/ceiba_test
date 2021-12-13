@@ -1,10 +1,5 @@
 
-
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'dart:async';
-import 'package:flutter/services.dart';
 import 'package:test_ceiba_software/src/model/users_model.dart';
 import 'package:test_ceiba_software/src/utils/http_service.dart';
 
@@ -12,6 +7,7 @@ import 'posts_page.dart';
 
 
 class HomePage extends StatefulWidget {
+  
   
   const HomePage({ Key? key}) : super(key: key);
 
@@ -58,9 +54,9 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 filteredUsers = users
                  .where((u) => (
-                    u.name.toLowerCase().contains(string.toLowerCase()) ||
-                    u.phone.toLowerCase().contains(string.toLowerCase()) ||
-                    u.email.toLowerCase().contains(string.toLowerCase())
+                    u.name.toString().toLowerCase().contains(string.toLowerCase()) ||
+                    u.phone.toString().toLowerCase().contains(string.toLowerCase()) ||
+                    u.email.toString().toLowerCase().contains(string.toLowerCase())
                    )).toList();
               });
             },
@@ -78,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                                  Row(
                                    children: [
                                      Text(
-                                       filteredUsers[index].name,
+                                       filteredUsers[index].name.toString(),
                                        style: const TextStyle(
                                          color: Color(0xff2A5F32),
                                          fontSize: 16,
@@ -92,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                                    children: [
                                      const Icon(Icons.phone_outlined, color: Color(0xff2A5F32)),
                                      Text(
-                                       filteredUsers[index].phone,
+                                       filteredUsers[index].phone.toString(),
                                        style: const TextStyle(
                                          fontSize: 14,
                                        )
@@ -104,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                                    children: [
                                      const Icon(Icons.email_outlined, color: Color(0xff2A5F32)),
                                      Text(
-                                       filteredUsers[index].email,
+                                       filteredUsers[index].email.toString(),
                                        style: const TextStyle(
                                          fontSize: 14,
                                        )
@@ -118,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                                        onPressed: () {
                                           Navigator.push(
                                             context,
-                                            MaterialPageRoute(builder: (context) => const PostPage()),
+                                            MaterialPageRoute(builder: (context) =>  PostPage(user: filteredUsers[index])),
                                           );
                                        },
                                        child: const Text(
